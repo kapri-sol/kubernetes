@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: hello
+    labels:
+        app: hello
+spec:
+    containers:
+        - name: hello-container
+          image: van6065/hello-nodejs
+          livenessProbe:
+              httpGet:
+                  port: 3000
+                  path: /
+          readinessProbe:
+              httpGet:
+                  port: 3000
+                  path: /
